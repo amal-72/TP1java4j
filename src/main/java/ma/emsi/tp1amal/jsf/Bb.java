@@ -146,12 +146,15 @@ public class Bb implements Serializable {
     }
 
     public String nouveauChat() {
+        jsonAdapter.nouvelleConversation();
+
         this.question = null;
         this.reponse = null;
         this.conversation = new StringBuilder();
         this.roleSystemeChangeable = true;
         this.texteRequeteJson = null;
         this.texteReponseJson = null;
+
         return null;
     }
 
@@ -193,6 +196,19 @@ public class Bb implements Serializable {
                     """;
             this.listeRolesSysteme.add(
                     new SelectItem(role, "Guide touristique")
+            );
+
+            // Nouveau rôle système : Traducteur d'émotions
+            role = """
+                    You are an emotional message translator.
+                    You transform cold, awkward or simple messages into
+                    natural, warm and expressive messages.
+                    Always preserve the original meaning and adapt the tone
+                    to the context.
+                    Keep your responses short and authentic.
+                    """;
+            this.listeRolesSysteme.add(
+                    new SelectItem(role, "Traducteur d'émotions")
             );
         }
 

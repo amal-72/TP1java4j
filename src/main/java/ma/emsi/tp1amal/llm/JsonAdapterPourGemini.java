@@ -39,6 +39,14 @@ public class JsonAdapterPourGemini implements Serializable {
     }
 
     /**
+     * Réinitialise l'historique JSON pour démarrer une nouvelle conversation.
+     */
+    public void nouvelleConversation() {
+        this.requeteJson = null;
+        this.texteRequeteJson = null;
+    }
+
+    /**
      * Client pour envoyer une requête à l'API de Gemini.
      */
     @Inject
