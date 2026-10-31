@@ -102,6 +102,7 @@ public class Bb implements Serializable {
     }
 
     public String envoyer() {
+
         if (this.question == null || this.question.isBlank()) {
             FacesMessage message = new FacesMessage(
                     FacesMessage.SEVERITY_ERROR,
@@ -113,8 +114,6 @@ public class Bb implements Serializable {
         }
 
         try {
-            // Le rôle système doit être transmis à l'adaptateur.
-            // Cette méthode doit exister dans JsonAdapterPourGemini.
             jsonAdapter.setSystemRole(this.roleSysteme);
 
             LlmInteraction interaction =
